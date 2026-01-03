@@ -1,0 +1,96 @@
+import React, { useState } from 'react';
+import Hero from '../components/Hero';
+import ProductCard from '../components/ProductCard';
+import { products } from '../data/products';
+
+const Home = ({ onAddToCart }) => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', 'Clothing', 'Shoes', 'Caps', 'Sale'];
+
+  const filteredProducts = products.filter((product) => {
+    if (selectedCategory === 'All') return true;
+    if (selectedCategory === 'Sale') return product.sale;
+    return product.category === selectedCategory;
+  });
+
+  return (
+    <div>
+      <Hero />
+
+      {/* Categories */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-wrap gap-4 justify-center mb-16">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-8 py-4 font-black uppercase tracking-wider text-base border-4 transition-all ${
+                selectedCategory === category
+                  ? 'bg-black text-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+                  : 'bg-white text-black border-black hover:bg-black hover:text-white hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Products Grid */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-5xl font-black uppercase tracking-tight">
+              {selectedCategory === 'All' ? 'All Products' : selectedCategory}
+            </h2>
+            <p className="text-gray-900 font-bold text-lg">
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'item' : 'items'}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddToCart={onAddToCart}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 pt-20 border-t-4 border-black">
+          <div className="text-center">
+            <div className="w-20 h-20 bg-black text-white flex items-center justify-center mx-auto mb-4 text-3xl font-bold border-4 border-black">
+              ★
+            </div>
+            <h3 className="font-black uppercase mb-2 text-xl">Premium Quality</h3>
+            <p className="text-gray-600 text-sm">
+              Carefully curated streetwear with exceptional quality
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              →
+            </div>
+            <h3 className="font-bold uppercase mb-2">Fast Shipping</h3>
+            <p className="text-gray-600 text-sm">
+              Get your order delivered within 2-5 business days
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-black text-white flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              ↻
+            </div>
+            <h3 className="font-bold uppercase mb-2">Easy Returns</h3>
+            <p className="text-gray-600 text-sm">
+              Not satisfied? Return within 30 days for a full refund
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
