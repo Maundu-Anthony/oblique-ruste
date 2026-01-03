@@ -26,16 +26,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Decorative stripes */}
-      <div className="absolute bottom-0 right-0 w-1/3 h-full opacity-10">
-        <div className="h-full flex flex-col justify-between">
-          <div className="h-2 bg-white"></div>
-          <div className="h-2 bg-white"></div>
-          <div className="h-2 bg-white"></div>
-          <div className="h-2 bg-white"></div>
-        </div>
-      </div>
     </div>
   );
 };
