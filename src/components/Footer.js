@@ -2,16 +2,16 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-urban-black text-white mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
-          <h2 className="text-4xl font-black uppercase tracking-tight mb-2">OBLIQUE-RUSTE</h2>
-          <p className="text-gray-400">Urban Street Style</p>
+    <footer className="bg-urban-black text-white mt-24 border-t-4 border-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-12 pb-8 border-b-2 border-gray-800">
+          <h2 className="text-5xl font-black uppercase tracking-tighter mb-3 hover:tracking-tight transition-all duration-300">OBLIQUE-RUSTE</h2>
+          <p className="text-gray-400 text-lg font-semibold uppercase tracking-widest">✦ Urban Street Style ✦</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* About */}
-          <div>
-            <h3 className="font-bold uppercase tracking-wider mb-4 text-lg">About Us</h3>
+          <div className="group">
+            <h3 className="font-black uppercase tracking-wider mb-5 text-xl border-b-2 border-white inline-block pb-2 group-hover:tracking-widest transition-all">About Us</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your go-to destination for authentic urban streetwear. We bring you the latest in fashion for the modern youth.
             </p>

@@ -8,6 +8,14 @@
   body {
     @apply bg-white text-urban-black font-urban;
   }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer components {
